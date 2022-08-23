@@ -24,45 +24,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:logo="@drawable/ic_youtube_music_logo_with_text" />
 
-        <HorizontalScrollView
-            android:id="@+id/chipBody"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipList"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:paddingHorizontal="12dp"
-                android:clipToPadding="false"
-                app:singleLine="true"
-                app:singleSelection="true" >
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="운동"/>
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="휴식"/>
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="에너지 충전"/>
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="집중"/>
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="출퇴근 &amp; 등하교"/>
-            </com.google.android.material.chip.ChipGroup>
-        </HorizontalScrollView>
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -72,7 +33,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipBody"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:navGraph="@navigation/nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
