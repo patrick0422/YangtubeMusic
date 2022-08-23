@@ -21,6 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private fun setUpBottomNav() {
         setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
