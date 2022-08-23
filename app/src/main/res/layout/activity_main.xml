@@ -24,15 +24,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:logo="@drawable/ic_youtube_music_logo_with_text" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/chipList"
+        <HorizontalScrollView
+            android:id="@+id/chipBody"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="50dp"
+            android:background="@color/almost_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:singleLine="true"
+                app:singleSelection="true" />
+        </HorizontalScrollView>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
@@ -43,7 +50,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipList"
+            app:layout_constraintTop_toBottomOf="@+id/chipBody"
             app:navGraph="@navigation/nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
