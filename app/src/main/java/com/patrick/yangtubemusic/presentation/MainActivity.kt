@@ -1,5 +1,6 @@
 package com.patrick.yangtubemusic.presentation
 
+import android.view.Menu
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,6 +21,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun setUpBottomNav() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
@@ -29,6 +32,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         )
         binding.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+
+        return true
     }
 
     override fun onSupportNavigateUp(): Boolean =
