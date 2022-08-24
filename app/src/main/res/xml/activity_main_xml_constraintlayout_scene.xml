@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MotionScene 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="300">
-       <KeyFrameSet>
-       </KeyFrameSet>
-        <OnSwipe motion:touchAnchorSide="bottom" />
+        motion:duration="100">
+        <KeyFrameSet>
+        </KeyFrameSet>
+        <OnSwipe motion:touchAnchorSide="bottom"
+            motion:onTouchUp="decelerate"
+            motion:maxAcceleration="4.0"
+            motion:maxVelocity="2.0" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -18,19 +20,26 @@
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:id="@+id/toolbar"
-            motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            motion:layout_constraintTop_toTopOf="parent"
+            android:translationY="-60dp"
+            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            android:translationY="-60dp" />
+            motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
+            android:id="@+id/fragmentContainerView"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/chipBody"
             android:layout_width="0dp"
-            android:id="@+id/fragmentContainerView" />
+            android:layout_height="50dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 </MotionScene>
