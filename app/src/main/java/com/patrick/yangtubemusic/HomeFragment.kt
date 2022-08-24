@@ -33,4 +33,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             binding.chipList.addView(chip)
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+
+        binding.chipList.removeAllViews()
+    }
 }
