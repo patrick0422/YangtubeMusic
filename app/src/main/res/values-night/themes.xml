@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
         <!-- Customize your theme here. -->
-        <item name="colorControlHighlight">@color/white</item>
+        <item name="colorControlHighlight">@color/highlight</item>
         <item name="windowNoTitle">true</item>
         <item name="android:navigationBarColor">@color/almost_black</item>
     </style>
