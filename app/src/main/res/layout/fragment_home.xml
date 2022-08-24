@@ -10,12 +10,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeFragment">
+        tools:background="@color/black"
+        tools:context=".presentation.home.HomeFragment">
 
         <HorizontalScrollView
             android:id="@+id/chipBody"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,8 +29,39 @@
                 android:clipToPadding="false"
                 android:paddingHorizontal="12dp"
                 app:singleLine="true"
-                app:singleSelection="true"/>
+                app:singleSelection="true" />
         </HorizontalScrollView>
 
+        <TextView
+            android:id="@+id/start_radio_from_a_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/start_radio_from_a_song"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chipBody" />
+
+        <TextView
+            android:id="@+id/quick_picks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quick_picks"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/start_radio_from_a_song"
+            app:layout_constraintTop_toBottomOf="@+id/start_radio_from_a_song" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/quickPicksViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/quick_picks"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
