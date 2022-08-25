@@ -11,4 +11,5 @@
     <color name="gray">#AAAAAA</color>
     <color name="white">#FFFFFFFF</color>
     <color name="highlight">#808E8E8E</color>
+    <color name="divider">#FF303030</color>
 </resources>
