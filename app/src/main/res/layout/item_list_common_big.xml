@@ -8,22 +8,42 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginBottom="8dp">
+        android:paddingHorizontal="8dp">
 
         <ImageView
             android:id="@+id/imageItemThumbnail"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/thumbnail_large" />
+
+        <View
+            android:id="@+id/viewThumbnailOverlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/imageItemThumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/imageItemThumbnail"
+            app:layout_constraintStart_toStartOf="@+id/imageItemThumbnail"
+            app:layout_constraintTop_toTopOf="@+id/imageItemThumbnail" />
+
+        <ImageView
+            android:id="@+id/imagePlay"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_play"
+            app:layout_constraintBottom_toBottomOf="@+id/imageItemThumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/imageItemThumbnail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageItemThumbnail" />
+
 
         <TextView
             android:id="@+id/textItemTitle"
