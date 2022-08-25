@@ -35,9 +35,3 @@ class QuickPicksPageViewHolder(
         quickPicksItem4.musicData = musicList[3]
     }
 }
-
-data class MusicCompact(
-    val title: String,
-    val artist: String,
-    val thumbnailUrl: String
-)
