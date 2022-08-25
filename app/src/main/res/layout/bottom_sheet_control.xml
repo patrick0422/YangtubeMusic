@@ -39,7 +39,7 @@
                 android:layout_marginHorizontal="12dp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@id/textMusicArtist"
-                app:layout_constraintEnd_toStartOf="@+id/imageThumbDown"
+                app:layout_constraintEnd_toStartOf="@+id/buttonThumbDown"
                 app:layout_constraintStart_toEndOf="@+id/imageMusicThumbnail"
                 app:layout_constraintTop_toTopOf="@+id/imageMusicThumbnail"
                 app:layout_constraintVertical_chainStyle="packed"
@@ -57,7 +57,7 @@
                 tools:text="김승민" />
 
             <ImageView
-                android:id="@+id/imageThumbDown"
+                android:id="@+id/buttonThumbDown"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -66,11 +66,11 @@
                 android:padding="10dp"
                 android:src="@drawable/ic_thumb_down"
                 app:layout_constraintBottom_toBottomOf="@+id/imageMusicThumbnail"
-                app:layout_constraintEnd_toStartOf="@+id/imageThumbUp"
+                app:layout_constraintEnd_toStartOf="@+id/buttonThumbUp"
                 app:layout_constraintTop_toTopOf="@+id/imageMusicThumbnail" />
 
             <ImageView
-                android:id="@+id/imageThumbUp"
+                android:id="@+id/buttonThumbUp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="10dp"
