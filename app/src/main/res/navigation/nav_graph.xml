@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_explore" />
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.patrick.yangtubemusic.LibraryFragment"
+        android:name="com.patrick.yangtubemusic.presentation.library.LibraryFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_library" />
     <dialog
