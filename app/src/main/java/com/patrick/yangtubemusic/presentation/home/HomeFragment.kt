@@ -1,49 +1,56 @@
 package com.patrick.yangtubemusic.presentation.home
 
-import android.util.DisplayMetrics
+import android.annotation.SuppressLint
 import android.util.TypedValue
+import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.chip.Chip
 import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
+import com.patrick.yangtubemusic.data.Music
 import com.patrick.yangtubemusic.databinding.FragmentHomeBinding
-import com.patrick.yangtubemusic.presentation.home.quickpicks.MusicCompact
 import com.patrick.yangtubemusic.presentation.home.quickpicks.QuickPicksPageAdapter
 import com.patrick.yangtubemusic.util.Constants.mockList
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
-    private fun getChip() = Chip(requireContext()).apply {
-        isCheckable = true
-        isChipIconVisible = false
-        isCheckedIconVisible = false
-        isCloseIconVisible = false
-        setTextColor(resources.getColorStateList(R.color.chip_text_selector, null))
-        setChipBackgroundColorResource(R.color.chip_background_selector)
-    }
-    private val chipList by lazy {
-        listOf(
-            getChip().apply { text = "운동" },
-            getChip().apply { text = "휴식" },
-            getChip().apply { text = "에너지 충전" },
-            getChip().apply { text = "집중" },
-            getChip().apply { text = "출퇴근 & 등하교" }
+    private val quickPicksPageAdapter by lazy {
+        QuickPicksPageAdapter(
+            onItemClick = { music: Music ->
+                playMusic(music)
+            },
+            onItemLongClick = { music: Music ->
+                openControlBottomSheet(music)
+
+            },
+            onMoreClick = { music: Music ->
+                openControlBottomSheet(music)
+            },
         )
     }
-    private val quickPicksPageAdapter by lazy { QuickPicksPageAdapter() }
+
+    private fun playMusic(music: Music) {
+        makeToast(music.title)
+    }
+
+    private fun openControlBottomSheet(music: Music) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToControlBottomSheet(music))
+    }
 
     override fun init() {
         addChip()
         loadQuickPicks()
     }
 
-    private fun loadQuickPicks() = with(binding) {
-        quickPicksViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        quickPicksViewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-        quickPicksViewPager.offscreenPageLimit = 2
+    @SuppressLint("NotifyDataSetChanged")
+    private fun loadQuickPicks() = with(binding.quickPicksViewPager) {
+        orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        offscreenPageLimit = 2
 
-        quickPicksViewPager.setPageTransformer { page, position ->
+        setPageTransformer { page, position ->
             val pageTranslationX = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
                 40F,
@@ -52,21 +59,40 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             page.translationX = -pageTranslationX * (position)
         }
 
-
-        quickPicksViewPager.adapter = quickPicksPageAdapter
         quickPicksPageAdapter.quickPicksPageList = mockList
         quickPicksPageAdapter.notifyDataSetChanged()
+
+        adapter = quickPicksPageAdapter
     }
 
     private fun addChip() {
-        chipList.forEach { chip ->
+        listOf(
+            "운동",
+            "휴식",
+            "에너지 충전",
+            "집중",
+            "출퇴근 & 등하교"
+        ).forEach { chipText ->
+            val chip = Chip(requireContext()).apply {
+                isCheckable = true
+                isChipIconVisible = false
+                isCheckedIconVisible = false
+                isCloseIconVisible = false
+                text = chipText
+                setTextColor(resources.getColorStateList(R.color.chip_text_selector, null))
+                setChipBackgroundColorResource(R.color.chip_background_selector)
+            }
+
             binding.chipList.addView(chip)
         }
-    }
 
-    override fun onStop() {
-        super.onStop()
-
-        binding.chipList.removeAllViews()
+        binding.chipList.setOnCheckedStateChangeListener { group, _ ->
+            group.checkedChipId.let {
+                if (it != View.NO_ID) {
+                    val chip = binding.root.findViewById<Chip>(group.checkedChipId)
+                    makeToast(chip.text.toString())
+                }
+            }
+        }
     }
 }
