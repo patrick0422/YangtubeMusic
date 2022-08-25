@@ -39,4 +39,7 @@ class BottomSheetButton @JvmOverloads constructor(
         }
     }
 
+    fun setOnClickListener(onClick: () -> Unit) {
+        binding.layout.setOnClickListener { onClick() }
+    }
 }
