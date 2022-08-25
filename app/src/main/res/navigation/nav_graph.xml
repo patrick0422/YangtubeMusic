@@ -23,7 +23,11 @@
         android:id="@+id/libraryFragment"
         android:name="com.patrick.yangtubemusic.presentation.library.LibraryFragment"
         android:label="fragment_library"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_libraryFragment_to_controlBottomSheet"
+            app:destination="@id/controlBottomSheet" />
+    </fragment>
     <dialog
         android:id="@+id/controlBottomSheet"
         android:name="com.patrick.yangtubemusic.presentation.bottomsheet.ControlBottomSheet"
