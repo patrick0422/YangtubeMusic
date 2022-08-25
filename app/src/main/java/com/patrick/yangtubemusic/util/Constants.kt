@@ -4,17 +4,21 @@ import com.patrick.yangtubemusic.data.Music
 
 
 object Constants {
+    const val TAG = "YangtubeMusic"
+
     val mockList = listOf(
         arrayOf(
             Music(
                 "내 기쁨은 네가 벤틀리를 타는 거야",
                 "김승민",
-                "https://lh3.googleusercontent.com/yZTtpy3PXhUx6BaUl-SxiDDqWvI-VfAGHvGpUfQOosEMqMstR10_9HecHd1u0w0vNrota6BGNk_HDg4=w120-h120-l90-rj"
+                "https://lh3.googleusercontent.com/yZTtpy3PXhUx6BaUl-SxiDDqWvI-VfAGHvGpUfQOosEMqMstR10_9HecHd1u0w0vNrota6BGNk_HDg4=w120-h120-l90-rj",
+                true
             ),
             Music(
                 "Me & You ◑",
                 "HONNE(혼네)",
-                "https://lh3.googleusercontent.com/XnLiu9JAt_Z4GDTeLlVQ1EVgFXS1xdQcVRDeh83whiC5TQgmboVuQsKmQU0L8Bx7uhqpgrpfZnnl1HFZ=w120-h120-l90-rj"
+                "https://lh3.googleusercontent.com/XnLiu9JAt_Z4GDTeLlVQ1EVgFXS1xdQcVRDeh83whiC5TQgmboVuQsKmQU0L8Bx7uhqpgrpfZnnl1HFZ=w120-h120-l90-rj",
+                false
             ),
             Music(
                 "니가 돌아올 희망은 없다는 걸 알아",
