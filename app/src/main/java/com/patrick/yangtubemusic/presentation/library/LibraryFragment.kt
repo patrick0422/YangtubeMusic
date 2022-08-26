@@ -5,7 +5,6 @@ import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
 import com.patrick.yangtubemusic.data.Music
 import com.patrick.yangtubemusic.databinding.FragmentLibraryBinding
-import com.patrick.yangtubemusic.presentation.home.HomeFragmentDirections
 import com.patrick.yangtubemusic.util.Constants.mockRecentActivityList
 
 
@@ -19,12 +18,15 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
         }
     )
 
-    override fun init() {
+    override fun init() = with(binding) {
         loadRecentActivity()
-    }
 
-    private fun playMusic(music: Music) {
-        makeToast(music.title)
+        buttonDownload.setOnClickListener { goToDownload() }
+        buttonPlaylists.setOnClickListener { goToPlaylists() }
+        buttonAlbums.setOnClickListener { goToAlbums() }
+        buttonSongs.setOnClickListener { goToSongs() }
+        buttonArtists.setOnClickListener { goToArtists() }
+        buttonSubscriptions.setOnClickListener { goToSubscriptions() }
     }
 
     private fun loadRecentActivity() {
@@ -33,8 +35,35 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
         binding.listRecentActivity.adapter = recentActivityListAdapter
     }
 
+    private fun playMusic(music: Music) {
+        makeToast(music.title)
+    }
+
     private fun openControlBottomSheet(music: Music) {
         findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToControlBottomSheet(music))
     }
 
+    fun goToDownload() {
+        makeToast("Download")
+    }
+
+    fun goToPlaylists() {
+        makeToast("Playlist")
+    }
+
+    fun goToAlbums() {
+        makeToast("Albums")
+    }
+
+    fun goToSongs() {
+        makeToast("Songs")
+    }
+
+    fun goToArtists() {
+        makeToast("Artists")
+    }
+
+    fun goToSubscriptions() {
+        makeToast("Subscriptions")
+    }
 }
