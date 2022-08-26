@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="BottomSheetButton">
+    <declare-styleable name="Common">
         <attr name="icon" format="reference" />
         <attr name="description" format="reference|string" />
     </declare-styleable>
