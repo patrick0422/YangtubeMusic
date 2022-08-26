@@ -177,7 +177,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:description="@string/go_to_artist"
-            app:icon="@drawable/ic_person_search"
+            app:icon="@drawable/ic_artist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

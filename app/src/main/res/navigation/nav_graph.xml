@@ -16,14 +16,18 @@
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
-        android:name="com.patrick.yangtubemusic.ExploreFragment"
+        android:name="com.patrick.yangtubemusic.presentation.explore.ExploreFragment"
         android:label="fragment_explore"
         tools:layout="@layout/fragment_explore" />
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.patrick.yangtubemusic.LibraryFragment"
+        android:name="com.patrick.yangtubemusic.presentation.library.LibraryFragment"
         android:label="fragment_library"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_libraryFragment_to_controlBottomSheet"
+            app:destination="@id/controlBottomSheet" />
+    </fragment>
     <dialog
         android:id="@+id/controlBottomSheet"
         android:name="com.patrick.yangtubemusic.presentation.bottomsheet.ControlBottomSheet"
