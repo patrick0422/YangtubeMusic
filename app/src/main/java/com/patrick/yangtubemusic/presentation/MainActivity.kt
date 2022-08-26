@@ -32,6 +32,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         )
         binding.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            binding.motionLayout.progress = 0F
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

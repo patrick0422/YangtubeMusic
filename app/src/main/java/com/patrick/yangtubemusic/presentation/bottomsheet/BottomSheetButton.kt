@@ -24,12 +24,12 @@ class BottomSheetButton @JvmOverloads constructor(
     init {
         context.theme.obtainStyledAttributes(
             attrs,
-            R.styleable.BottomSheetButton,
+            R.styleable.Common,
             0, 0).apply {
 
             try {
-                icon = getResourceId(R.styleable.BottomSheetButton_icon, R.drawable.ic_question)
-                description = getString(R.styleable.BottomSheetButton_description) ?: "Unknown"
+                icon = getResourceId(R.styleable.Common_icon, R.drawable.ic_question)
+                description = getString(R.styleable.Common_description) ?: "Unknown"
 
                 binding.imageIcon.setImageResource(icon)
                 binding.textDescription.text = description

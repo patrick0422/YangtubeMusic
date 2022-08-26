@@ -1,5 +1,6 @@
 package com.patrick.yangtubemusic.presentation.library
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -45,6 +46,7 @@ class RecentActivityViewHolder(
         )
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     fun bind(music: Music) {
         with(binding) {
             imageItemThumbnail.load(music.thumbnailUrl)
@@ -57,7 +59,7 @@ class RecentActivityViewHolder(
                 true
             }
 
-            layout.setOnTouchListener { view, _ ->
+            layout.setOnTouchListener { _, _ ->
                 viewThumbnailOverlay.isPressed = true
 
                 false
@@ -68,7 +70,7 @@ class RecentActivityViewHolder(
             }
             layout.setOnLongClickListener {
                 onLongClick(music)
-                true
+                false
             }
         }
     }
