@@ -44,7 +44,7 @@ class MusicBottomSheet : BottomSheetDialogFragment() {
         buttonStartRadio.setOnClickListener { onStartRadio() }
         buttonPlayNext.setOnClickListener { onPlayNext() }
         buttonAddToQueue.setOnClickListener { onAddToQueue() }
-        buttonRemoveFromLibrary.setOnClickListener { onRemoveFromLibrary() }
+        buttonLibrary.setOnClickListener { onLibrary() }
         buttonDownload.setOnClickListener { onDownload() }
         buttonAddToPlaylist.setOnClickListener { onAddToPlaylist() }
         buttonGoToAlbum.setOnClickListener { onGoToAlbum() }
@@ -119,7 +119,7 @@ class MusicBottomSheet : BottomSheetDialogFragment() {
         makeToast("목록에 추가")
     }
 
-    private fun onRemoveFromLibrary() {
+    private fun onLibrary() {
         makeToast("보관함에 추가")
     }
 

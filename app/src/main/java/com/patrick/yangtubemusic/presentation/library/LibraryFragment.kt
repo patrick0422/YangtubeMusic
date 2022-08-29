@@ -33,7 +33,7 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
                     openArtistBottomSheet(content)
                 }
                 is Content.Playlist -> {
-
+                    openPlaylistBottomSheet(content)
                 }
             }
         }
@@ -66,6 +66,10 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
 
     private fun openArtistBottomSheet(artist: Content.Artist) {
         findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToArtistBottomSheet(artist))
+    }
+
+    private fun openPlaylistBottomSheet(playlist: Content.Playlist) {
+        findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToPlaylistBottomSheet(playlist))
     }
 
     private fun goToDownload() {

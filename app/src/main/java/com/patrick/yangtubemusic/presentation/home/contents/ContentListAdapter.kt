@@ -70,7 +70,7 @@ class ContentViewHolder(
                     openArtistBottomSheet(content)
                 }
                 is Playlist -> {
-                    //TODO
+                    openPlaylistBottomSheet(content)
                 }
             }
         }
@@ -82,6 +82,10 @@ class ContentViewHolder(
 
     private fun openArtistBottomSheet(artist: Artist) {
         navController.navigate(HomeFragmentDirections.actionHomeFragmentToArtistBottomSheet(artist))
+    }
+
+    private fun openPlaylistBottomSheet(playlist: Playlist) {
+        navController.navigate(HomeFragmentDirections.actionHomeFragmentToPlaylistBottomSheet(playlist))
     }
 
     fun bind(contents: Contents) = with(binding) {
