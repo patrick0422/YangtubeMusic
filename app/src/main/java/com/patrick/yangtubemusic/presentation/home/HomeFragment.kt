@@ -33,6 +33,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
     }
 
+    private val contentListAdapter by lazy {
+        ContentListAdapter(findNavController())
+    }
+
     private fun playMusic(music: Music) {
         makeToast(music.title)
     }
@@ -44,6 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun init() {
         addChip()
         loadQuickPicks()
+        loadContents()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -61,10 +66,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             page.translationX = -pageTranslationX * (position)
         }
 
-        quickPicksPageAdapter.quickPicksPageList = mockList
+        quickPicksPageAdapter.quickPicksPageList = quickPickList
         quickPicksPageAdapter.notifyDataSetChanged()
 
         adapter = quickPicksPageAdapter
+    }
+
+    private fun loadContents() {
+        contentListAdapter.submitList(contentsLists)
+
+        binding.contentsRecyclerView.adapter = contentListAdapter
     }
 
     private fun addChip() {
