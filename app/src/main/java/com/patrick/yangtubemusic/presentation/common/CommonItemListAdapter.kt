@@ -1,6 +1,8 @@
 package com.patrick.yangtubemusic.presentation.common
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.OvalShape
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -97,6 +99,8 @@ class CommonItemViewHolder(
 
     private fun bindArtist(artist: Artist) = with(binding) {
         imagePlay.visibility = View.GONE
+        imageItemThumbnail.background = ShapeDrawable(OvalShape())
+        imageItemThumbnail.clipToOutline = true
         imageItemThumbnail.load(artist.thumbnailUrl)
         textItemTitle.text = artist.name
         textItemSubtitle.text = artist.description

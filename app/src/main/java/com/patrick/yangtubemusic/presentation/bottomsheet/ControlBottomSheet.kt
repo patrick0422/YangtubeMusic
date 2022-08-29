@@ -20,7 +20,7 @@ class ControlBottomSheet : BottomSheetDialogFragment() {
     private val binding: BottomSheetControlBinding by lazy { BottomSheetControlBinding.inflate(layoutInflater) }
     private val args: ControlBottomSheetArgs by navArgs()
 
-    private val music: Music by lazy { args.music }
+    private val music: Music by lazy { args.music } // ??? 왜 빨간줄?
 
     //TODO: 실제 값을 받아오게 된다면 변수 tempLikeStatusForTest를 삭제하고 실제 값을 대입해 사용해야 함
     private var tempLikeStatusForTest: Boolean? = null
