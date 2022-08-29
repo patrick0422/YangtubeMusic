@@ -202,25 +202,25 @@ object Constants {
         ),
         Contents.MixedForYou(
             content = listOf(
-                Content.PlayList(
+                Content.Playlist(
                     name = "좋아요 표시한 동영상",
                     description = "자동 재생목록",
                     thumbnailUrl = "https://www.gstatic.com/youtube/media/ytm/images/pbg/liked-songs-@576.png",
                     playList = musicList
                 ),
-                Content.PlayList(
+                Content.Playlist(
                     name = "나만을 위한 맞춤 믹스 1",
                     description = "크라잉넛, 전람회, 노을, 김동률",
                     thumbnailUrl = "https://music.youtube.com/image/mixart?r=ENgEGNgEMh8ICBABGgkvbS8wZ3pkMWgaCi9tLzBuYmN2bHYiAmVu",
                     playList = musicList
                 ),
-                Content.PlayList(
+                Content.Playlist(
                     name = "나만을 위한 맞춤 믹스 2",
                     description = "크러쉬, 더 콰이엇(The Quiett), 기리보이(Giriboy), 윌콕스   ",
                     thumbnailUrl = "https://www.gstatic.com/youtube/media/ytm/images/pbg/mix-art-fallback-1@1200.png",
                     playList = musicList
                 ),
-                Content.PlayList(
+                Content.Playlist(
                     name = "나만을 위한 맞춤 믹스 3",
                     description = "트웬티 원 파일럿츠, Imagine Dragons(이매진 드래곤스),",
                     thumbnailUrl = "https://music.youtube.com/image/mixart?r=ENgEGNgEMiAICBADGgovbS8wc20yOF80GgovbS8wZHJfMHR3IgJlbg",

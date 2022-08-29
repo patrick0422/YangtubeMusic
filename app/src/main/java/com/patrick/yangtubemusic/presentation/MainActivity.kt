@@ -33,6 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        // TODO Home & Explore & Library 프래그먼트 간 전환 시에만 실행하도록 바꿔야 함
         navController.addOnDestinationChangedListener { _, _, _ ->
             binding.motionLayout.progress = 0F
         }

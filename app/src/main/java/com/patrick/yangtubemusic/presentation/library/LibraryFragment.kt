@@ -19,7 +19,7 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
                 is Content.Artist -> {
 
                 }
-                is Content.PlayList -> {
+                is Content.Playlist -> {
 
                 }
             }
@@ -27,13 +27,13 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
         onLongClick = { content ->
             when (content) {
                 is Content.Music -> {
-                    openControlBottomSheet(content)
+                    openMusicBottomSheet(content)
                 }
                 is Content.Artist -> {
-
+                    openArtistBottomSheet(content)
                 }
-                is Content.PlayList -> {
-
+                is Content.Playlist -> {
+                    openPlaylistBottomSheet(content)
                 }
             }
         }
@@ -60,8 +60,16 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
         makeToast(music.title)
     }
 
-    private fun openControlBottomSheet(music: Content.Music) {
-        findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToControlBottomSheet(music))
+    private fun openMusicBottomSheet(music: Content.Music) {
+        findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToMusicBottomSheet(music))
+    }
+
+    private fun openArtistBottomSheet(artist: Content.Artist) {
+        findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToArtistBottomSheet(artist))
+    }
+
+    private fun openPlaylistBottomSheet(playlist: Content.Playlist) {
+        findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToPlaylistBottomSheet(playlist))
     }
 
     private fun goToDownload() {

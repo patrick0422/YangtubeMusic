@@ -13,7 +13,7 @@ import coil.load
 import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.data.Content.Artist
-import com.patrick.yangtubemusic.data.Content.PlayList
+import com.patrick.yangtubemusic.data.Content.Playlist
 import com.patrick.yangtubemusic.databinding.ItemListCommonBigBinding
 
 class CommonItemListAdapter(
@@ -54,14 +54,14 @@ class CommonItemViewHolder(
 
     @SuppressLint("ClickableViewAccessibility")
     fun bind(content: Content) {
-        when(content) {
+        when (content) {
             is Music -> {
                 bindMusic(content)
             }
             is Artist -> {
                 bindArtist(content)
             }
-            is PlayList -> {
+            is Playlist -> {
                 bindPlayList(content)
             }
         }
@@ -107,7 +107,7 @@ class CommonItemViewHolder(
 
     }
 
-    private fun bindPlayList(playList: PlayList) = with(binding) {
+    private fun bindPlayList(playList: Playlist) = with(binding) {
         imagePlay.visibility = View.GONE
         imageItemThumbnail.load(playList.thumbnailUrl)
         textItemTitle.text = playList.name

@@ -18,7 +18,7 @@ sealed class Contents(
 
     class MixedForYou(
         contentTitle: String = "맞춤 믹스",
-        content: List<Content.PlayList>
+        content: List<Content.Playlist>
     ): Contents(
         contentTitle = contentTitle,
         content = content
