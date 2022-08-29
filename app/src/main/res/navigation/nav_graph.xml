@@ -30,9 +30,9 @@
     </fragment>
     <dialog
         android:id="@+id/controlBottomSheet"
-        android:name="com.patrick.yangtubemusic.presentation.bottomsheet.ControlBottomSheet"
+        android:name="com.patrick.yangtubemusic.presentation.bottomsheet.MusicBottomSheet"
         android:label="ControlBottomSheet"
-        tools:layout="@layout/bottom_sheet_control" >
+        tools:layout="@layout/bottom_sheet_music" >
         <argument
             android:name="music"
             app:argType="com.patrick.yangtubemusic.data.Content$Music" />

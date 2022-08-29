@@ -14,11 +14,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.data.Content.Music
-import com.patrick.yangtubemusic.databinding.BottomSheetControlBinding
+import com.patrick.yangtubemusic.databinding.BottomSheetMusicBinding
 
-class ControlBottomSheet : BottomSheetDialogFragment() {
-    private val binding: BottomSheetControlBinding by lazy { BottomSheetControlBinding.inflate(layoutInflater) }
-    private val args: ControlBottomSheetArgs by navArgs()
+class MusicBottomSheet : BottomSheetDialogFragment() {
+    private val binding: BottomSheetMusicBinding by lazy { BottomSheetMusicBinding.inflate(layoutInflater) }
+    private val args: MusicBottomSheetArgs by navArgs()
 
     private val music: Music by lazy { args.music } // ??? 왜 빨간줄?
 
