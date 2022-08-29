@@ -5,16 +5,37 @@ import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
 import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.databinding.FragmentLibraryBinding
+import com.patrick.yangtubemusic.presentation.common.CommonItemListAdapter
 import com.patrick.yangtubemusic.util.Constants.musicList
 
 
 class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_library) {
-    private val commonItemListAdapter = RecentActivityListAdapter(
-        onClick = { music ->
-            playMusic(music)
+    private val commonItemListAdapter = CommonItemListAdapter(
+        onClick = { content ->
+            when (content) {
+                is Content.Music -> {
+                    playMusic(content)
+                }
+                is Content.Artist -> {
+
+                }
+                is Content.PlayList -> {
+
+                }
+            }
         },
-        onLongClick = { music ->
-            openControlBottomSheet(music)
+        onLongClick = { content ->
+            when (content) {
+                is Content.Music -> {
+                    openControlBottomSheet(content)
+                }
+                is Content.Artist -> {
+
+                }
+                is Content.PlayList -> {
+
+                }
+            }
         }
     )
 
