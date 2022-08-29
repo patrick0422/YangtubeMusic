@@ -24,4 +24,8 @@
     <string name="songs">노래</string>
     <string name="artists">아티스트</string>
     <string name="subscriptions">구독</string>
+    <string name="more">더보기</string>
+    <string name="listen_again">다시 듣기</string>
+    <string name="mixed_for_you">맞춤 믹스</string>
+    <string name="similar_to">아래 아티스트를 좋아한다면</string>
 </resources>

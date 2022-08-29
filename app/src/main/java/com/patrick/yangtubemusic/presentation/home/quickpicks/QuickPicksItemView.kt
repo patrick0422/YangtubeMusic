@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import coil.load
-import com.patrick.yangtubemusic.data.Music
+import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.ItemQuickPicksBinding
 
 class QuickPicksItemView @JvmOverloads constructor(

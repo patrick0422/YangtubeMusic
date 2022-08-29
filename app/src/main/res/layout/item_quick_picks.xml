@@ -31,6 +31,7 @@
             android:ellipsize="marquee"
             android:focusable="true"
             android:singleLine="true"
+            android:textStyle="bold"
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@id/textMusicArtist"
             app:layout_constraintEnd_toStartOf="@+id/buttonMore"

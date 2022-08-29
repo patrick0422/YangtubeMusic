@@ -35,6 +35,6 @@
         tools:layout="@layout/bottom_sheet_control" >
         <argument
             android:name="music"
-            app:argType="com.patrick.yangtubemusic.data.Music" />
+            app:argType="com.patrick.yangtubemusic.data.Content$Music" />
     </dialog>
 </navigation>

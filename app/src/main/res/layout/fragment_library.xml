@@ -7,13 +7,14 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never">
+        android:overScrollMode="never"
+        tools:background="@color/black"
+        tools:context=".presentation.library.LibraryFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rootLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:context=".presentation.library.LibraryFragment">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/wrapRecentActivity"
@@ -88,8 +89,8 @@
                 app:icon="@drawable/ic_playlist_play"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintTop_toBottomOf="@id/buttonDownload"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonDownload" />
 
             <com.patrick.yangtubemusic.presentation.library.LibraryButton
                 android:id="@+id/buttonAlbums"
@@ -99,8 +100,8 @@
                 app:icon="@drawable/ic_album"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintTop_toBottomOf="@id/buttonPlaylists"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonPlaylists" />
 
             <com.patrick.yangtubemusic.presentation.library.LibraryButton
                 android:id="@+id/buttonSongs"
@@ -110,8 +111,8 @@
                 app:icon="@drawable/ic_music_note"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintTop_toBottomOf="@id/buttonAlbums"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonAlbums" />
 
             <com.patrick.yangtubemusic.presentation.library.LibraryButton
                 android:id="@+id/buttonArtists"
@@ -121,8 +122,8 @@
                 app:icon="@drawable/ic_artist"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintTop_toBottomOf="@id/buttonSongs"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonSongs" />
 
             <com.patrick.yangtubemusic.presentation.library.LibraryButton
                 android:id="@+id/buttonSubscriptions"
@@ -132,8 +133,8 @@
                 app:icon="@drawable/ic_subscriptions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintTop_toBottomOf="@id/buttonArtists"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonArtists" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

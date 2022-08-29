@@ -9,10 +9,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.chip.Chip
 import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
-import com.patrick.yangtubemusic.data.Music
+import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.FragmentHomeBinding
+import com.patrick.yangtubemusic.presentation.home.contents.ContentListAdapter
 import com.patrick.yangtubemusic.presentation.home.quickpicks.QuickPicksPageAdapter
-import com.patrick.yangtubemusic.util.Constants.mockList
+import com.patrick.yangtubemusic.util.Constants.contentsLists
+import com.patrick.yangtubemusic.util.Constants.quickPickList
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -31,6 +33,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
     }
 
+    private val contentListAdapter by lazy {
+        ContentListAdapter(findNavController())
+    }
+
     private fun playMusic(music: Music) {
         makeToast(music.title)
     }
@@ -42,6 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun init() {
         addChip()
         loadQuickPicks()
+        loadContents()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -59,10 +66,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             page.translationX = -pageTranslationX * (position)
         }
 
-        quickPicksPageAdapter.quickPicksPageList = mockList
+        quickPicksPageAdapter.quickPicksPageList = quickPickList
         quickPicksPageAdapter.notifyDataSetChanged()
 
         adapter = quickPicksPageAdapter
+    }
+
+    private fun loadContents() {
+        contentListAdapter.submitList(contentsLists)
+
+        binding.contentsRecyclerView.adapter = contentListAdapter
     }
 
     private fun addChip() {
