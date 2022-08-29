@@ -42,7 +42,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun openControlBottomSheet(music: Music) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToControlBottomSheet(music))
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMusicBottomSheet(music))
     }
 
     override fun init() {

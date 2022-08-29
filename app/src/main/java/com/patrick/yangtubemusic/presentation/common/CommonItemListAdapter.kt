@@ -54,7 +54,7 @@ class CommonItemViewHolder(
 
     @SuppressLint("ClickableViewAccessibility")
     fun bind(content: Content) {
-        when(content) {
+        when (content) {
             is Music -> {
                 bindMusic(content)
             }

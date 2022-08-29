@@ -14,16 +14,18 @@ sealed class Content(
         val likeStatus: Boolean? = null
     ): Parcelable, Content()
 
+    @Parcelize
     data class Artist(
         val thumbnailUrl: String,
         val name: String,
         val description: String
-    ): Content()
+    ): Parcelable, Content()
 
+    @Parcelize
     data class PlayList (
         val name: String,
         val description: String,
         val thumbnailUrl: String,
         val playList: List<Music>
-    ): Content()
+    ): Parcelable, Content()
 }

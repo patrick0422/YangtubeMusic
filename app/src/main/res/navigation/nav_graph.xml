@@ -11,8 +11,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_controlBottomSheet"
+            android:id="@+id/action_homeFragment_to_musicBottomSheet"
             app:destination="@id/controlBottomSheet" />
+        <action
+            android:id="@+id/action_homeFragment_to_artistBottomSheet"
+            app:destination="@id/artistBottomSheet" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -25,8 +28,11 @@
         android:label="fragment_library"
         tools:layout="@layout/fragment_library" >
         <action
-            android:id="@+id/action_libraryFragment_to_controlBottomSheet"
+            android:id="@+id/action_libraryFragment_to_musicBottomSheet"
             app:destination="@id/controlBottomSheet" />
+        <action
+            android:id="@+id/action_libraryFragment_to_artistBottomSheet"
+            app:destination="@id/artistBottomSheet" />
     </fragment>
     <dialog
         android:id="@+id/controlBottomSheet"
@@ -36,5 +42,14 @@
         <argument
             android:name="music"
             app:argType="com.patrick.yangtubemusic.data.Content$Music" />
+    </dialog>
+    <dialog
+        android:id="@+id/artistBottomSheet"
+        android:name="com.patrick.yangtubemusic.presentation.bottomsheet.ArtistBottomSheet"
+        android:label="ArtistBottomSheet"
+        tools:layout="@layout/bottom_sheet_artist">
+        <argument
+            android:name="artist"
+            app:argType="com.patrick.yangtubemusic.data.Content$Artist" />
     </dialog>
 </navigation>

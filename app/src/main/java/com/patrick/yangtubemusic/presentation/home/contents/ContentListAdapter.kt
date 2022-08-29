@@ -64,10 +64,10 @@ class ContentViewHolder(
         onLongClick = { content ->
             when (content) {
                 is Music -> {
-                    openControlBottomSheet(content)
+                    openMusicBottomSheet(content)
                 }
                 is Artist -> {
-                    //TODO
+                    openArtistBottomSheet(content)
                 }
                 is PlayList -> {
                     //TODO
@@ -76,8 +76,12 @@ class ContentViewHolder(
         }
     )
 
-    private fun openControlBottomSheet(music: Music) {
-        navController.navigate(HomeFragmentDirections.actionHomeFragmentToControlBottomSheet(music))
+    private fun openMusicBottomSheet(music: Music) {
+        navController.navigate(HomeFragmentDirections.actionHomeFragmentToMusicBottomSheet(music))
+    }
+
+    private fun openArtistBottomSheet(artist: Artist) {
+        navController.navigate(HomeFragmentDirections.actionHomeFragmentToArtistBottomSheet(artist))
     }
 
     fun bind(contents: Contents) = with(binding) {
