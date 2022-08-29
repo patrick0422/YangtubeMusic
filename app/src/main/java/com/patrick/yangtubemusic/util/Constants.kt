@@ -57,11 +57,23 @@ object Constants {
     val artistList = listOf(
         Content.Artist(
             name = "릴러말즈",
+            description = "아티스트 • 구독자 2.14만명",
             thumbnailUrl = "https://lh3.googleusercontent.com/wDx5-7NMG4rQSD8j5MEBcUnZmYvCxbs1cA7CnsW32Ljegc9f0WnSo-jD_6I1FSCU0RPBf47xGdyiXIU=w120-h120-p-l90-rj"
         ),
         Content.Artist(
             name = "윤하",
+            description = "아티스트 • 구독자 12.3만명",
             thumbnailUrl = "https://lh3.googleusercontent.com/DwgTrAJOIrJ87SSPLTixftV_xG4ZXgerAxxX9-ipiJV9nNg7ySVq00Tebt7_cJt_1ThdeHddsi3j8w=w120-h120-p-l90-rj"
+        ),
+        Content.Artist(
+            name = "해쉬 스완(Hash Swan)",
+            description = "아티스트 • 구독자 1.03만명",
+            thumbnailUrl = "https://lh3.googleusercontent.com/YbiVpKIftqFt2GK-g1nkdUyirm9P5SlPyd_F2GfvVOASsBTd8ThGn_nTl9Qhsi63PLMGjWol-vvLtQ=w544-h544-p-l90-rj"
+        ),
+        Content.Artist(
+            name = "염따",
+            description = "아티스트 • 구독자 38.1만명",
+            thumbnailUrl = "https://lh3.googleusercontent.com/usF6bTDAOM-Vlu1lyGUqlmQ3m0lv_LLVgJyOeDN-7cFwrARL2OcgW3-vk8xWkeIbs_5Tp90Z0X31xg=w544-h544-p-l90-rj"
         )
     )
 
@@ -191,8 +203,27 @@ object Constants {
         Contents.MixedForYou(
             content = listOf(
                 Content.PlayList(
+                    name = "좋아요 표시한 동영상",
+                    description = "자동 재생목록",
+                    thumbnailUrl = "https://www.gstatic.com/youtube/media/ytm/images/pbg/liked-songs-@576.png",
+                    playList = musicList
+                ),
+                Content.PlayList(
                     name = "나만을 위한 맞춤 믹스 1",
-                    thumbnailUrl = "",
+                    description = "크라잉넛, 전람회, 노을, 김동률",
+                    thumbnailUrl = "https://music.youtube.com/image/mixart?r=ENgEGNgEMh8ICBABGgkvbS8wZ3pkMWgaCi9tLzBuYmN2bHYiAmVu",
+                    playList = musicList
+                ),
+                Content.PlayList(
+                    name = "나만을 위한 맞춤 믹스 2",
+                    description = "크러쉬, 더 콰이엇(The Quiett), 기리보이(Giriboy), 윌콕스   ",
+                    thumbnailUrl = "https://www.gstatic.com/youtube/media/ytm/images/pbg/mix-art-fallback-1@1200.png",
+                    playList = musicList
+                ),
+                Content.PlayList(
+                    name = "나만을 위한 맞춤 믹스 3",
+                    description = "트웬티 원 파일럿츠, Imagine Dragons(이매진 드래곤스),",
+                    thumbnailUrl = "https://music.youtube.com/image/mixart?r=ENgEGNgEMiAICBADGgovbS8wc20yOF80GgovbS8wZHJfMHR3IgJlbg",
                     playList = musicList
                 )
             )

@@ -16,11 +16,13 @@ sealed class Content(
 
     data class Artist(
         val thumbnailUrl: String,
-        val name: String
+        val name: String,
+        val description: String
     ): Content()
 
     data class PlayList (
         val name: String,
+        val description: String,
         val thumbnailUrl: String,
         val playList: List<Music>
     ): Content()
