@@ -22,7 +22,7 @@ sealed class Content(
     ): Parcelable, Content()
 
     @Parcelize
-    data class PlayList (
+    data class Playlist (
         val name: String,
         val description: String,
         val thumbnailUrl: String,

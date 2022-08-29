@@ -19,7 +19,7 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
                 is Content.Artist -> {
 
                 }
-                is Content.PlayList -> {
+                is Content.Playlist -> {
 
                 }
             }
@@ -32,7 +32,7 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
                 is Content.Artist -> {
                     openArtistBottomSheet(content)
                 }
-                is Content.PlayList -> {
+                is Content.Playlist -> {
 
                 }
             }

@@ -56,7 +56,7 @@ class ContentViewHolder(
                 is Artist -> {
                     Toast.makeText(binding.root.context, content.name, Toast.LENGTH_SHORT).show()
                 }
-                is PlayList -> {
+                is Playlist -> {
                     Toast.makeText(binding.root.context, content.name, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -69,7 +69,7 @@ class ContentViewHolder(
                 is Artist -> {
                     openArtistBottomSheet(content)
                 }
-                is PlayList -> {
+                is Playlist -> {
                     //TODO
                 }
             }
