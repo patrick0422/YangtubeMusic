@@ -28,4 +28,6 @@
     <string name="listen_again">다시 듣기</string>
     <string name="mixed_for_you">맞춤 믹스</string>
     <string name="similar_to">아래 아티스트를 좋아한다면</string>
+    <string name="subscribe">구독</string>
+    <string name="shuffle_play">셔플 재생</string>
 </resources>
