@@ -1,4 +1,4 @@
-package com.patrick.yangtubemusic.presentation.home.contents
+package com.patrick.yangtubemusic.presentation.common
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

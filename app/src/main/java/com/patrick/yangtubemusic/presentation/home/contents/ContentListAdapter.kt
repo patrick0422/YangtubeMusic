@@ -13,6 +13,7 @@ import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.data.Content.*
 import com.patrick.yangtubemusic.data.Contents
 import com.patrick.yangtubemusic.databinding.ItemDynamicContentBinding
+import com.patrick.yangtubemusic.presentation.common.CommonItemListAdapter
 import com.patrick.yangtubemusic.presentation.home.HomeFragmentDirections
 
 class ContentListAdapter(
