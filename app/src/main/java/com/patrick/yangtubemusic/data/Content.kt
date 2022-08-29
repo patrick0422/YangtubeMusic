@@ -1,38 +1,27 @@
 package com.patrick.yangtubemusic.data
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+sealed class Content(
 
-sealed class Content<T>(
-    val iconUrl: String? = null,
-    val contentTitle: String,
-    val contentDescription: String? = null,
-    val content: T
 ) {
-    class ListenAgain(
-        contentTitle: String,
-        content: List<Music>
-    ): Content<List<Music>>(
-        contentTitle = contentTitle,
-        content = content
-    )
+    @Parcelize
+    data class Music(
+        val title: String,
+        val artist: String,
+        val thumbnailUrl: String,
+        val likeStatus: Boolean? = null
+    ): Parcelable, Content()
 
-    class MixedForYou(
-        contentTitle: String,
-        content: List<PlayList>
-    ): Content<List<PlayList>>(
-        contentTitle = contentTitle,
-        content = content
-    )
+    data class Artist(
+        val thumbnailUrl: String,
+        val name: String
+    ): Content()
 
-    class ContentRecommendationByArtist(
-        thumbnailUrl: String,
-        contentTitle: String,
-        contentDescription: String,
-        content: List<Artist>
-    ): Content<List<Artist>>(
-        iconUrl = thumbnailUrl,
-        contentTitle = contentTitle,
-        contentDescription = contentDescription,
-        content = content
-    )
+    data class PlayList (
+        val name: String,
+        val thumbnailUrl: String,
+        val playList: List<Music>
+    ): Content()
 }
