@@ -15,19 +15,25 @@
             android:id="@+id/contentDescriptionWrap"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="60dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageContentThumbnail"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="20dp"
+                android:layout_marginRight="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@id/textContentTitle"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/thumbnail" />
@@ -36,8 +42,6 @@
                 android:id="@+id/textContentTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="12dp"
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 android:textStyle="bold"
@@ -46,13 +50,13 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/imageContentThumbnail"
                 app:layout_constraintTop_toBottomOf="@id/textContentDescription"
-                tools:text="산이(San E)" />
+                tools:text="김승민" />
 
             <TextView
                 android:id="@+id/textContentDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:textColor="@color/gray"
                 app:layout_constraintBottom_toTopOf="@+id/textContentTitle"
                 app:layout_constraintStart_toStartOf="@+id/textContentTitle"
                 app:layout_constraintTop_toTopOf="parent"
@@ -79,6 +83,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contentList"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
