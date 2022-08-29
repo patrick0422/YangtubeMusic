@@ -3,7 +3,7 @@ package com.patrick.yangtubemusic.presentation.home.quickpicks
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.patrick.yangtubemusic.data.Music
+import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.PageQuickPicksBinding
 
 class QuickPicksPageAdapter(

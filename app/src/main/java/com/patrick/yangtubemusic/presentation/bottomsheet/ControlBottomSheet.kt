@@ -2,11 +2,9 @@ package com.patrick.yangtubemusic.presentation.bottomsheet
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import coil.load
@@ -15,10 +13,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.patrick.yangtubemusic.R
-import com.patrick.yangtubemusic.data.Music
+import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.BottomSheetControlBinding
-import com.patrick.yangtubemusic.util.Constants
-import com.patrick.yangtubemusic.util.Constants.TAG
 
 class ControlBottomSheet : BottomSheetDialogFragment() {
     private val binding: BottomSheetControlBinding by lazy { BottomSheetControlBinding.inflate(layoutInflater) }

@@ -3,13 +3,13 @@ package com.patrick.yangtubemusic.presentation.library
 import androidx.navigation.fragment.findNavController
 import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
-import com.patrick.yangtubemusic.data.Music
+import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.databinding.FragmentLibraryBinding
-import com.patrick.yangtubemusic.util.Constants.mockRecentActivityList
+import com.patrick.yangtubemusic.util.Constants.musicList
 
 
 class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_library) {
-    private val recentActivityListAdapter = RecentActivityListAdapter(
+    private val commonItemListAdapter = RecentActivityListAdapter(
         onClick = { music ->
             playMusic(music)
         },
@@ -30,40 +30,40 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
     }
 
     private fun loadRecentActivity() {
-        recentActivityListAdapter.submitList(mockRecentActivityList)
+        commonItemListAdapter.submitList(musicList)
 
-        binding.listRecentActivity.adapter = recentActivityListAdapter
+        binding.listRecentActivity.adapter = commonItemListAdapter
     }
 
-    private fun playMusic(music: Music) {
+    private fun playMusic(music: Content.Music) {
         makeToast(music.title)
     }
 
-    private fun openControlBottomSheet(music: Music) {
+    private fun openControlBottomSheet(music: Content.Music) {
         findNavController().navigate(LibraryFragmentDirections.actionLibraryFragmentToControlBottomSheet(music))
     }
 
-    fun goToDownload() {
+    private fun goToDownload() {
         makeToast("Download")
     }
 
-    fun goToPlaylists() {
+    private fun goToPlaylists() {
         makeToast("Playlist")
     }
 
-    fun goToAlbums() {
+    private fun goToAlbums() {
         makeToast("Albums")
     }
 
-    fun goToSongs() {
+    private fun goToSongs() {
         makeToast("Songs")
     }
 
-    fun goToArtists() {
+    private fun goToArtists() {
         makeToast("Artists")
     }
 
-    fun goToSubscriptions() {
+    private fun goToSubscriptions() {
         makeToast("Subscriptions")
     }
 }

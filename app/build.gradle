@@ -51,4 +51,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     implementation("io.coil-kt:coil:2.2.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }

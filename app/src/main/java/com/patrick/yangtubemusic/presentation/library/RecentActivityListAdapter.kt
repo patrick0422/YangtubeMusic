@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.patrick.yangtubemusic.data.Music
+import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.ItemListCommonBigBinding
 
 class RecentActivityListAdapter(
