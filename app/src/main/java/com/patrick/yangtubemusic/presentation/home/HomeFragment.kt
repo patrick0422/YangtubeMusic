@@ -11,6 +11,7 @@ import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
 import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.FragmentHomeBinding
+import com.patrick.yangtubemusic.presentation.MainActivity
 import com.patrick.yangtubemusic.presentation.home.contents.ContentListAdapter
 import com.patrick.yangtubemusic.presentation.home.quickpicks.QuickPicksPageAdapter
 import com.patrick.yangtubemusic.util.Constants.contentsLists
@@ -37,6 +38,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         ContentListAdapter(findNavController())
     }
 
+    override fun init() {
+        addChip()
+        loadToolbar()
+        loadQuickPicks()
+        loadContents()
+    }
+
     private fun playMusic(music: Music) {
         makeToast(music.title)
     }
@@ -45,10 +53,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMusicBottomSheet(music))
     }
 
-    override fun init() {
-        addChip()
-        loadQuickPicks()
-        loadContents()
+    private fun loadToolbar() {
+        (activity as MainActivity).let {
+            it.setSupportActionBar(binding.toolbar)
+            it.supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")

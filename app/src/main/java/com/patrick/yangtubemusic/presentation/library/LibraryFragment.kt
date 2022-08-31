@@ -5,6 +5,7 @@ import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
 import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.databinding.FragmentLibraryBinding
+import com.patrick.yangtubemusic.presentation.MainActivity
 import com.patrick.yangtubemusic.presentation.common.CommonItemListAdapter
 import com.patrick.yangtubemusic.util.Constants.musicList
 
@@ -39,9 +40,20 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
         }
     )
 
-    override fun init() = with(binding) {
+    override fun init() {
+        loadToolbar()
+        loadMenu()
         loadRecentActivity()
+    }
 
+    private fun loadToolbar() {
+        (activity as MainActivity).let {
+            it.setSupportActionBar(binding.toolbar)
+            it.supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
+    }
+
+    private fun loadMenu() = with(binding) {
         buttonDownload.setOnClickListener { goToDownload() }
         buttonPlaylists.setOnClickListener { goToPlaylists() }
         buttonAlbums.setOnClickListener { goToAlbums() }

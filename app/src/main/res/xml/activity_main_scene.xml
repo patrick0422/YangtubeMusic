@@ -17,14 +17,6 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/toolbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:translationY="-60dp"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
-        <Constraint
             android:id="@+id/fragmentContainerView"
             android:layout_width="0dp"
             android:layout_height="0dp"

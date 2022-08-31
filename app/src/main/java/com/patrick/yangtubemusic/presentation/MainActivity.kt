@@ -1,6 +1,8 @@
 package com.patrick.yangtubemusic.presentation
 
 import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -21,8 +23,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun setUpBottomNav() {
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        setSupportActionBar(Toolbar(binding.root.context))
+
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
@@ -43,6 +45,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
 
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.toolbar_cast -> {
+            makeToast("기기에 연결")
+            true
+        }
+        R.id.toolbar_search -> {
+            makeToast("검색")
+            true
+        }
+        R.id.toolbar_account -> {
+            makeToast("프로필")
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean =
