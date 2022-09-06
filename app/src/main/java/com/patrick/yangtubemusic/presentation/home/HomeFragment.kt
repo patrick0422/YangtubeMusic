@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.util.TypedValue
 import android.view.MenuItem
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -16,6 +17,8 @@ import com.patrick.yangtubemusic.presentation.home.contents.ContentListAdapter
 import com.patrick.yangtubemusic.presentation.home.quickpicks.QuickPicksPageAdapter
 import com.patrick.yangtubemusic.util.Constants.contentsLists
 import com.patrick.yangtubemusic.util.Constants.quickPickList
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -34,8 +37,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
     }
 
-    private val contentListAdapter by lazy {
-        ContentListAdapter(findNavController())
+    private val contentListAdapter by lazy { ContentListAdapter(findNavController()) }
+
+    override fun init() {
+        addChip()
+        loadQuickPicks()
+        loadContents()
+        binding.swipeRefreshLayout.setOnRefreshListener { onRefresh() }
+    }
+
+    private fun onRefresh() {
+        lifecycleScope.launch {
+            delay(1000)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun playMusic(music: Music) {
@@ -44,12 +59,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun openControlBottomSheet(music: Music) {
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMusicBottomSheet(music))
-    }
-
-    override fun init() {
-        addChip()
-        loadQuickPicks()
-        loadContents()
     }
 
     @SuppressLint("NotifyDataSetChanged")

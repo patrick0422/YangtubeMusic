@@ -3,138 +3,143 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        tools:background="@color/black"
-        tools:context=".presentation.library.LibraryFragment">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/rootLayout"
+        android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            tools:background="@color/black"
+            tools:context=".presentation.library.LibraryFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/wrapRecentActivity"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:id="@+id/rootLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textRecentActivity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
-                    android:layout_marginLeft="24dp"
-                    android:text="최근 활동"
-                    android:textColor="@color/white"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/imageArrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="12dp"
-                    android:layout_marginRight="20dp"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_arrow_forward"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/wrapRecentActivity"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/textRecentActivity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="12dp"
+                        android:layout_marginLeft="24dp"
+                        android:text="최근 활동"
+                        android:textColor="@color/white"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="12dp"
+                        android:layout_marginRight="20dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listRecentActivity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    android:paddingVertical="8dp"
+                    android:paddingLeft="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wrapRecentActivity"
+                    tools:listitem="@layout/item_list_common_big" />
+
+                <com.patrick.yangtubemusic.presentation.library.LibraryButton
+                    android:id="@+id/buttonDownload"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:description="@string/downloads"
+                    app:icon="@drawable/ic_download"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/listRecentActivity" />
+
+                <com.patrick.yangtubemusic.presentation.library.LibraryButton
+                    android:id="@+id/buttonPlaylists"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:description="@string/playlists"
+                    app:icon="@drawable/ic_playlist_play"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonDownload" />
+
+                <com.patrick.yangtubemusic.presentation.library.LibraryButton
+                    android:id="@+id/buttonAlbums"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:description="@string/albums"
+                    app:icon="@drawable/ic_album"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonPlaylists" />
+
+                <com.patrick.yangtubemusic.presentation.library.LibraryButton
+                    android:id="@+id/buttonSongs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:description="@string/songs"
+                    app:icon="@drawable/ic_music_note"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonAlbums" />
+
+                <com.patrick.yangtubemusic.presentation.library.LibraryButton
+                    android:id="@+id/buttonArtists"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:description="@string/artists"
+                    app:icon="@drawable/ic_artist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonSongs" />
+
+                <com.patrick.yangtubemusic.presentation.library.LibraryButton
+                    android:id="@+id/buttonSubscriptions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:description="@string/subscriptions"
+                    app:icon="@drawable/ic_subscriptions"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonArtists" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listRecentActivity"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:orientation="horizontal"
-                android:overScrollMode="never"
-                android:paddingVertical="8dp"
-                android:paddingLeft="16dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wrapRecentActivity"
-                tools:listitem="@layout/item_list_common_big" />
-
-            <com.patrick.yangtubemusic.presentation.library.LibraryButton
-                android:id="@+id/buttonDownload"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:description="@string/downloads"
-                app:icon="@drawable/ic_download"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/listRecentActivity" />
-
-            <com.patrick.yangtubemusic.presentation.library.LibraryButton
-                android:id="@+id/buttonPlaylists"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:description="@string/playlists"
-                app:icon="@drawable/ic_playlist_play"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonDownload" />
-
-            <com.patrick.yangtubemusic.presentation.library.LibraryButton
-                android:id="@+id/buttonAlbums"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:description="@string/albums"
-                app:icon="@drawable/ic_album"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonPlaylists" />
-
-            <com.patrick.yangtubemusic.presentation.library.LibraryButton
-                android:id="@+id/buttonSongs"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:description="@string/songs"
-                app:icon="@drawable/ic_music_note"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonAlbums" />
-
-            <com.patrick.yangtubemusic.presentation.library.LibraryButton
-                android:id="@+id/buttonArtists"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:description="@string/artists"
-                app:icon="@drawable/ic_artist"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonSongs" />
-
-            <com.patrick.yangtubemusic.presentation.library.LibraryButton
-                android:id="@+id/buttonSubscriptions"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:description="@string/subscriptions"
-                app:icon="@drawable/ic_subscriptions"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonArtists" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
