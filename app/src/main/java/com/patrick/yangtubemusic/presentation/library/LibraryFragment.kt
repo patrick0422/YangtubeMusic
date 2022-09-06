@@ -1,5 +1,6 @@
 package com.patrick.yangtubemusic.presentation.library
 
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
@@ -7,6 +8,8 @@ import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.databinding.FragmentLibraryBinding
 import com.patrick.yangtubemusic.presentation.common.CommonItemListAdapter
 import com.patrick.yangtubemusic.util.Constants.musicList
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_library) {
@@ -42,12 +45,20 @@ class LibraryFragment : BaseFragment<FragmentLibraryBinding>(R.layout.fragment_l
     override fun init() = with(binding) {
         loadRecentActivity()
 
+        swipeRefreshLayout.setOnRefreshListener { onRefresh() }
         buttonDownload.setOnClickListener { goToDownload() }
         buttonPlaylists.setOnClickListener { goToPlaylists() }
         buttonAlbums.setOnClickListener { goToAlbums() }
         buttonSongs.setOnClickListener { goToSongs() }
         buttonArtists.setOnClickListener { goToArtists() }
         buttonSubscriptions.setOnClickListener { goToSubscriptions() }
+    }
+
+    private fun onRefresh() {
+        lifecycleScope.launch {
+            delay(1000)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun loadRecentActivity() {
