@@ -1,6 +1,7 @@
 package com.patrick.yangtubemusic.presentation
 
 import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -36,6 +37,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         // TODO Home & Explore & Library 프래그먼트 간 전환 시에만 실행하도록 바꿔야 함
         navController.addOnDestinationChangedListener { _, _, _ ->
             binding.motionLayout.progress = 0F
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
+        R.id.toolbar_cast -> {
+
+            true
+        }
+        R.id.toolbar_search -> {
+
+            true
+        }
+        R.id.toolbar_account -> {
+
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
         }
     }
 
