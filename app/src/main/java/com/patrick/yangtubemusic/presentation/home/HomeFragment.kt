@@ -2,7 +2,6 @@ package com.patrick.yangtubemusic.presentation.home
 
 import android.annotation.SuppressLint
 import android.util.TypedValue
-import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
