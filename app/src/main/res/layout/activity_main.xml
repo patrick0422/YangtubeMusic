@@ -15,6 +15,12 @@
         app:layoutDescription="@xml/activity_main_xml_constraintlayout_scene"
         tools:context=".presentation.MainActivity">
 
+        <View
+            android:id="@+id/gradientBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:background="@drawable/gradient"/>
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="0dp"
