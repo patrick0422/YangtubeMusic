@@ -1,7 +1,13 @@
 package com.patrick.yangtubemusic.presentation
 
+import android.content.Context
+import android.graphics.Color
+import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
+import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -19,6 +25,46 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         navController = navHostFragment.navController
 
         setUpBottomNav()
+        setTransparent()
+    }
+
+    private fun setTransparent() {
+        window.apply {
+            clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            statusBarColor = Color.TRANSPARENT
+            navigationBarColor = Color.TRANSPARENT
+            setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
+        if(Build.VERSION.SDK_INT >= 30) {	// API 30 이상에 적용
+            WindowCompat.setDecorFitsSystemWindows(window, true)
+        }
+        setPadding()
+    }
+
+    private fun setPadding() {
+        binding.toolbar.setPadding(0, statusBarHeight(), 0, 0)
+        binding.bottomNavigationView.setPadding(0, 0, 0, navigationBarHeight())
+    }
+
+    private fun statusBarHeight(): Int {
+        val resourceId = resources.getIdentifier(
+            "status_bar_height",
+            "dimen",
+            "android"
+        )
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId) else 0
+    }
+    private fun navigationBarHeight(): Int {
+        val resourceId = resources.getIdentifier(
+            "navigation_bar_height",
+            "dimen",
+            "android"
+        )
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId) else 0
     }
 
     private fun setUpBottomNav() {
@@ -40,7 +86,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.toolbar_cast -> {
 
             true
