@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import androidx.core.view.WindowCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -46,8 +47,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun setPadding() {
-        binding.toolbar.setPadding(0, statusBarHeight(), 0, 0)
-        binding.bottomNavigationView.setPadding(0, 0, 0, navigationBarHeight())
+        binding.toolbar.updatePadding(top = statusBarHeight())
+        binding.bottomNavigationView.updatePadding(bottom = navigationBarHeight())
     }
 
     private fun statusBarHeight(): Int {
