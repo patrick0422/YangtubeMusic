@@ -31,4 +31,7 @@
     <string name="subscribe">구독</string>
     <string name="shuffle_play">셔플 재생</string>
     <string name="add_playlist_to_library">보관함에 재생목록 추가</string>
+
+    <string name="song_title">Pockets</string>
+    <string name="artist">이지 라이프</string>
 </resources>
