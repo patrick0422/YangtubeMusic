@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.patrick.yangtubemusic.R
+import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.data.Content.*
 import com.patrick.yangtubemusic.data.Contents
 import com.patrick.yangtubemusic.databinding.ItemDynamicContentBinding
@@ -17,7 +18,8 @@ import com.patrick.yangtubemusic.presentation.common.CommonItemListAdapter
 import com.patrick.yangtubemusic.presentation.home.HomeFragmentDirections
 
 class ContentListAdapter(
-    private val navController: NavController
+    private val onClick: (Content) -> Unit,
+    private val onLongClick: (Content) -> Unit
 ): ListAdapter<Contents, ContentViewHolder>(
     object : DiffUtil.ItemCallback<Contents>() {
         override fun areItemsTheSame(oldItem: Contents, newItem: Contents): Boolean = oldItem === newItem
@@ -26,67 +28,34 @@ class ContentListAdapter(
     }
 ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder =
-        ContentViewHolder.from(parent, navController)
+        ContentViewHolder.from(parent, onClick, onLongClick)
 
     override fun onBindViewHolder(holder: ContentViewHolder, position: Int) = holder.bind(getItem(position))
 }
 
 class ContentViewHolder(
     private val binding: ItemDynamicContentBinding,
-    private val navController: NavController
+    private val onClick: (Content) -> Unit,
+    private val onLongClick: (Content) -> Unit
 ): RecyclerView.ViewHolder(binding.root) {
     companion object {
         fun from(
             parent: ViewGroup,
-            navController: NavController
+            onClick: (Content) -> Unit,
+            onLongClick: (Content) -> Unit
         ): ContentViewHolder = ContentViewHolder(
             ItemDynamicContentBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             ),
-            navController
+            onClick,
+            onLongClick
         )
     }
 
     private val commonItemListAdapter = CommonItemListAdapter(
-        onClick = { content ->
-            when (content) {
-                is Music -> {
-                    Toast.makeText(binding.root.context, content.title, Toast.LENGTH_SHORT).show()
-                }
-                is Artist -> {
-                    Toast.makeText(binding.root.context, content.name, Toast.LENGTH_SHORT).show()
-                }
-                is Playlist -> {
-                    Toast.makeText(binding.root.context, content.name, Toast.LENGTH_SHORT).show()
-                }
-            }
-        },
-        onLongClick = { content ->
-            when (content) {
-                is Music -> {
-                    openMusicBottomSheet(content)
-                }
-                is Artist -> {
-                    openArtistBottomSheet(content)
-                }
-                is Playlist -> {
-                    openPlaylistBottomSheet(content)
-                }
-            }
-        }
+        onClick = { content -> onClick(content) },
+        onLongClick = { content -> onLongClick(content) }
     )
-
-    private fun openMusicBottomSheet(music: Music) {
-        navController.navigate(HomeFragmentDirections.actionHomeFragmentToMusicBottomSheet(music))
-    }
-
-    private fun openArtistBottomSheet(artist: Artist) {
-        navController.navigate(HomeFragmentDirections.actionHomeFragmentToArtistBottomSheet(artist))
-    }
-
-    private fun openPlaylistBottomSheet(playlist: Playlist) {
-        navController.navigate(HomeFragmentDirections.actionHomeFragmentToPlaylistBottomSheet(playlist))
-    }
 
     fun bind(contents: Contents) = with(binding) {
         when(contents) {
