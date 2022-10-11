@@ -1,11 +1,9 @@
 package com.patrick.yangtubemusic.presentation
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.view.WindowManager
 import androidx.core.view.WindowCompat
 import androidx.core.view.updatePadding
@@ -16,7 +14,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseActivity
+import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.databinding.ActivityMainBinding
+import com.patrick.yangtubemusic.util.Constants.musicList
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private lateinit var navController: NavController
@@ -27,6 +27,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         setUpBottomNav()
         setTransparent()
+
+        setData(musicList[0])
+    }
+
+    fun setData(music: Content.Music) {
+        binding.collapsiblePlayer.setData(music)
     }
 
     private fun setTransparent() {

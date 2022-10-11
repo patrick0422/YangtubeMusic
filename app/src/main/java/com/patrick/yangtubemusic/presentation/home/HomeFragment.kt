@@ -12,6 +12,7 @@ import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
 import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.FragmentHomeBinding
+import com.patrick.yangtubemusic.presentation.MainActivity
 import com.patrick.yangtubemusic.presentation.home.contents.ContentListAdapter
 import com.patrick.yangtubemusic.presentation.home.quickpicks.QuickPicksPageAdapter
 import com.patrick.yangtubemusic.util.Constants.contentsLists
@@ -53,7 +54,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun playMusic(music: Music) {
-        makeToast(music.title)
+        (activity as MainActivity).setData(music)
     }
 
     private fun openControlBottomSheet(music: Music) {
