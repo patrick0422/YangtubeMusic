@@ -76,6 +76,7 @@
         motion:duration="100">
         <OnSwipe
             motion:dragDirection="dragDown"
+            motion:maxAcceleration="200"
             motion:touchRegionId="@id/headerWrap" />
     </Transition>
 </MotionScene>
