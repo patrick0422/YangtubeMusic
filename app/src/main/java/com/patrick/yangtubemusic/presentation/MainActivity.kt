@@ -26,7 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         navController = navHostFragment.navController
 
         setUpBottomNav()
-        setTransparent()
+//        setTransparent()
 
         setData(musicList[0])
     }

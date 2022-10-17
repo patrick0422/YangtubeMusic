@@ -3,6 +3,7 @@ package com.patrick.yangtubemusic.presentation.home
 import android.annotation.SuppressLint
 import android.util.TypedValue
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.chip.Chip
 import com.patrick.yangtubemusic.R
 import com.patrick.yangtubemusic.base.BaseFragment
+import com.patrick.yangtubemusic.data.Content
 import com.patrick.yangtubemusic.data.Content.Music
 import com.patrick.yangtubemusic.databinding.FragmentHomeBinding
 import com.patrick.yangtubemusic.presentation.MainActivity
@@ -22,6 +24,8 @@ import kotlinx.coroutines.launch
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+    private val navController by lazy { findNavController() }
+
     private val quickPicksPageAdapter by lazy {
         QuickPicksPageAdapter(
             onItemClick = { music: Music ->
@@ -37,7 +41,36 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         )
     }
 
-    private val contentListAdapter by lazy { ContentListAdapter(findNavController()) }
+    private val contentListAdapter by lazy {
+        ContentListAdapter(
+            onClick = { content ->
+                when (content) {
+                    is Music -> {
+                        playMusic(content)
+                    }
+                    is Content.Artist -> {
+                        Toast.makeText(binding.root.context, content.name, Toast.LENGTH_SHORT).show()
+                    }
+                    is Content.Playlist -> {
+                        Toast.makeText(binding.root.context, content.name, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            },
+            onLongClick = { content ->
+                when (content) {
+                    is Music -> {
+                        navController.navigate(HomeFragmentDirections.actionHomeFragmentToMusicBottomSheet(content))
+                    }
+                    is Content.Artist -> {
+                        navController.navigate(HomeFragmentDirections.actionHomeFragmentToArtistBottomSheet(content))
+                    }
+                    is Content.Playlist -> {
+                        navController.navigate(HomeFragmentDirections.actionHomeFragmentToPlaylistBottomSheet(content))
+                    }
+                }
+            }
+        )
+    }
 
     override fun init() {
         addChip()

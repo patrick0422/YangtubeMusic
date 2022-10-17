@@ -30,6 +30,7 @@
             android:id="@+id/minimizedPlayerWrap"
             android:layout_width="0dp"
             android:layout_height="66dp"
+            android:background="@color/almost_black"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
