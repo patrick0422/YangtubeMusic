@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.patrick.yangtubemusic.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_musicBottomSheet"
+            app:destination="@id/controlBottomSheet" />
+        <action
+            android:id="@+id/action_homeFragment_to_artistBottomSheet"
+            app:destination="@id/artistBottomSheet" />
+        <action
+            android:id="@+id/action_homeFragment_to_playlistBottomSheet"
+            app:destination="@id/playlistBottomSheet" />
+    </fragment>
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.patrick.yangtubemusic.presentation.explore.ExploreFragment"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" />
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.patrick.yangtubemusic.presentation.library.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_libraryFragment_to_musicBottomSheet"
+            app:destination="@id/controlBottomSheet" />
+        <action
+            android:id="@+id/action_libraryFragment_to_artistBottomSheet"
+            app:destination="@id/artistBottomSheet" />
+        <action
+            android:id="@+id/action_libraryFragment_to_playlistBottomSheet"
+            app:destination="@id/playlistBottomSheet" />
+    </fragment>
+    <dialog
+        android:id="@+id/controlBottomSheet"
+        android:name="com.patrick.yangtubemusic.presentation.bottomsheet.MusicBottomSheet"
+        android:label="ControlBottomSheet"
+        tools:layout="@layout/bottom_sheet_music" >
+        <argument
+            android:name="music"
+            app:argType="com.patrick.yangtubemusic.data.Content$Music" />
+    </dialog>
+    <dialog
+        android:id="@+id/artistBottomSheet"
+        android:name="com.patrick.yangtubemusic.presentation.bottomsheet.ArtistBottomSheet"
+        android:label="ArtistBottomSheet"
+        tools:layout="@layout/bottom_sheet_artist">
+        <argument
+            android:name="artist"
+            app:argType="com.patrick.yangtubemusic.data.Content$Artist" />
+    </dialog>
+    <dialog
+        android:id="@+id/playlistBottomSheet"
+        android:name="com.patrick.yangtubemusic.presentation.bottomsheet.PlaylistBottomSheet"
+        android:label="PlaylistBottomSheet"
+        tools:layout="@layout/bottom_sheet_playlist">
+        <argument
+            android:name="playlist"
+            app:argType="com.patrick.yangtubemusic.data.Content$Playlist" />
+    </dialog>
+</navigation>

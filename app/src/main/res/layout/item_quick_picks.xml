@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginHorizontal="24dp">
+
+        <ImageView
+            android:id="@+id/imageMusicThumbnail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginVertical="8dp"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/thumbnail" />
+
+        <TextView
+            android:id="@+id/textMusicTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/textMusicArtist"
+            app:layout_constraintEnd_toStartOf="@+id/buttonMore"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageMusicThumbnail"
+            app:layout_constraintTop_toTopOf="@+id/imageMusicThumbnail"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="내 기쁨은 너가 벤틀리를 끄는 거야" />
+
+        <TextView
+            android:id="@+id/textMusicArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:singleLine="true"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageMusicThumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/textMusicTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textMusicTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textMusicTitle"
+            tools:text="김승민" />
+
+        <ImageView
+            android:id="@+id/buttonMore"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingHorizontal="16dp"
+            android:src="@drawable/ic_more_vert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

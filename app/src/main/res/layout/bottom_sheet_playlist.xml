@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/almost_black">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerWrap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imagePlaylistThumbnail"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/thumbnail" />
+
+            <TextView
+                android:id="@+id/textPlaylistName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/textPlaylistDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imagePlaylistThumbnail"
+                app:layout_constraintTop_toTopOf="@+id/imagePlaylistThumbnail"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="나만의 믹스" />
+
+            <TextView
+                android:id="@+id/textPlaylistDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                app:layout_constraintBottom_toBottomOf="@+id/imagePlaylistThumbnail"
+                app:layout_constraintEnd_toEndOf="@+id/textPlaylistName"
+                app:layout_constraintStart_toStartOf="@+id/textPlaylistName"
+                app:layout_constraintTop_toBottomOf="@+id/textPlaylistName"
+                tools:text="이세계 아이돌 (ISEGYE IDOL), 김승민, 오반, 로꼬" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagePlaylistThumbnail" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.patrick.yangtubemusic.presentation.bottomsheet.BottomSheetButton
+            android:id="@+id/buttonShufflePlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="@string/shuffle_play"
+            app:icon="@drawable/ic_shuffle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerWrap" />
+
+        <com.patrick.yangtubemusic.presentation.bottomsheet.BottomSheetButton
+            android:id="@+id/buttonPlayNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="@string/play_next"
+            app:icon="@drawable/ic_playlist_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonShufflePlay" />
+
+        <com.patrick.yangtubemusic.presentation.bottomsheet.BottomSheetButton
+            android:id="@+id/buttonAddToQueue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="@string/add_to_queue"
+            app:icon="@drawable/ic_list_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonPlayNext" />
+
+        <com.patrick.yangtubemusic.presentation.bottomsheet.BottomSheetButton
+            android:id="@+id/buttonLibrary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="@string/add_playlist_to_library"
+            app:icon="@drawable/ic_add_to_playlist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonAddToQueue" />
+
+        <com.patrick.yangtubemusic.presentation.bottomsheet.BottomSheetButton
+            android:id="@+id/buttonDownload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="@string/download"
+            app:icon="@drawable/ic_download"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonLibrary" />
+
+        <com.patrick.yangtubemusic.presentation.bottomsheet.BottomSheetButton
+            android:id="@+id/buttonAddToPlaylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="@string/add_to_playlist"
+            app:icon="@drawable/ic_playlist_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonDownload" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
